@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-gold: #E5B05C;
+  --color-brand-dark: #121212;
+  --color-brand-card: #1E1E1E;
+}
+
+body {
+  background-color: #121212;
+  color: #ffffff;
+  overflow-x: hidden;
+}
