@@ -76,17 +76,18 @@ export default function Navbar() {
         })}
       </div>
 
-      {/* Mobile Menu Button */}
+      {/* Mobile Menu Toggle Button (Restored) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden text-gray-300 hover:text-white focus:outline-none"
+        aria-label="Toggle Menu"
+        className="md:hidden text-gray-300 hover:text-[#E5B05C] focus:outline-none transition-colors p-1"
       >
-        {isOpen ? <X size={28} /> : <Menu size={28} />}
+        {isOpen ? <X size={26} /> : <Menu size={26} />}
       </button>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu Dropdown Panel */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-[#121212] border-b border-white/10 flex flex-col items-center py-6 space-y-4 md:hidden">
+        <div className="absolute top-full left-0 w-full bg-[#121212]/95 backdrop-blur-xl border-b border-white/10 flex flex-col items-center py-8 space-y-6 md:hidden shadow-2xl">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -94,7 +95,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`relative text-lg uppercase tracking-wider transition-colors duration-200 flex items-center gap-2 ${
+                className={`relative text-base uppercase tracking-widest transition-colors duration-200 flex items-center gap-2.5 ${
                   isActive ? 'text-[#E5B05C] font-bold' : 'text-gray-300 hover:text-[#E5B05C]'
                 }`}
               >
