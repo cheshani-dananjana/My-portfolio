@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
-import profileImg from '../assets/ef93a9d0-272b-4753-ad46-a22194d44de1.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
   const navLinks = [
+    { name: 'Home', href: '#hero', id: 'hero' },
     { name: 'About', href: '#about', id: 'about' },
     { name: 'Skills', href: '#skills', id: 'skills' },
     { name: 'Recent Works', href: '#recent-works', id: 'recent-works' },
@@ -40,26 +40,17 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#121212]/90 backdrop-blur-md border-b border-white/10 px-6 py-3 flex justify-between items-center select-none">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#121212]/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center select-none">
       
+      {/* Brand / Logo Text */}
       <a 
         href="#hero" 
-        aria-label="Home"
-        className={`group flex items-center justify-center p-1.5 bg-[#1E1E1E] border rounded-2xl transition-all duration-300 shadow-md hover:scale-105 ${
-          activeSection === 'hero' ? 'border-[#E5B05C] shadow-[0_0_12px_rgba(229,176,92,0.3)]' : 'border-white/10 hover:border-[#E5B05C]'
-        }`}
+        className="text-sm font-mono tracking-widest uppercase text-white font-bold hover:text-[#E5B05C] transition-colors"
       >
-        <div className="w-10 h-10 rounded-xl overflow-hidden bg-gray-800">
-          <img 
-            src={profileImg} 
-            alt="Cheshani Dananjana Home" 
-            className={`w-full h-full object-cover object-top transition-all duration-300 ${
-              activeSection === 'hero' ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'
-            }`}
-          />
-        </div>
+        CHESHANI<span className="text-[#E5B05C]">.</span>
       </a>
 
+      {/* Desktop Navigation Links */}
       <div className="hidden md:flex space-x-8 text-sm uppercase tracking-wider font-medium text-gray-300">
         {navLinks.map((link) => {
           const isActive = activeSection === link.id;
@@ -85,6 +76,7 @@ export default function Navbar() {
         })}
       </div>
 
+      {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="md:hidden text-gray-300 hover:text-white focus:outline-none"
@@ -92,6 +84,7 @@ export default function Navbar() {
         {isOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
 
+      {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-[#121212] border-b border-white/10 flex flex-col items-center py-6 space-y-4 md:hidden">
           {navLinks.map((link) => {
