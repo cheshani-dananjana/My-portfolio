@@ -107,7 +107,7 @@ export default function Contact() {
           className="mb-14 border-b border-white/10 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4"
         >
           <div>
-            <span className="text-[#E5B05C] font-mono text-xs sm:text-sm tracking-widest uppercase">// 04. GET IN TOUCH</span>
+            <span className="text-[#E5B05C] font-mono text-xs sm:text-sm tracking-widest uppercase">04. GET IN TOUCH</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase mt-1 tracking-tight">
               LET'S BUILD SOMETHING TOGETHER
             </h2>

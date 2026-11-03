@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Mail } from 'lucide-react';
 import heroImg from '../assets/ef93a9d0-272b-4753-ad46-a22194d44de1.png';
 
-// Custom inline GitHub SVG Icon
 const GithubIcon = ({ size = 18, className = "" }) => (
   <svg
     width={size}
@@ -21,7 +20,6 @@ const GithubIcon = ({ size = 18, className = "" }) => (
   </svg>
 );
 
-// Custom inline LinkedIn SVG Icon
 const LinkedinIcon = ({ size = 18, className = "" }) => (
   <svg
     width={size}
@@ -44,18 +42,12 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen pt-28 pb-16 px-6 bg-[#121212] text-white flex flex-col justify-between select-none overflow-hidden">
       
-      {/* Background Architectural Grid Accent */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0" />
-
-      {/* Background Ambient Glow */}
       <div className="absolute left-1/4 top-1/3 w-[35rem] h-[35rem] bg-[#E5B05C]/5 rounded-full blur-[150px] pointer-events-none z-0" />
 
       <div className="max-w-6xl mx-auto w-full z-10 my-auto">
-        
-        {/* Main Hero Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column: Typography & Intro */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -63,7 +55,7 @@ export default function Hero() {
             className="lg:col-span-7 space-y-6"
           >
             <div className="space-y-3">
-              <span className="text-[#E5B05C] font-mono text-sm tracking-widest uppercase block">// HELLO, WORLD. I AM</span>
+              <span className="text-[#E5B05C] font-mono text-sm tracking-widest uppercase block">  HELLO, WORLD. I AM</span>
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-white leading-none">
                 CHESHANI <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-[#E5B05C]">
@@ -75,7 +67,6 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-4">
               <a
                 href="#recent-works"
@@ -91,7 +82,6 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Social Links Bar */}
             <div className="flex items-center gap-4 pt-6 text-gray-400">
               <span className="text-xs font-mono uppercase tracking-widest text-gray-500">Connect:</span>
               <a href="https://github.com/cheshani-dananjana" target="_blank" rel="noopener noreferrer" className="p-2 bg-[#1E1E1E] border border-white/10 rounded-xl hover:text-[#E5B05C] hover:border-[#E5B05C] transition-colors">
@@ -107,7 +97,6 @@ export default function Hero() {
 
           </motion.div>
 
-          {/* Right Column: Larger Portrait with Modern Floating Animation & Seamless Dark Vignette Blending */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -119,25 +108,19 @@ export default function Hero() {
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="relative w-80 sm:w-96 md:w-[28rem] aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 bg-transparent shadow-2xl group"
             >
-              
-              {/* Your Photo with Grayscale-to-Color Hover Effect */}
               <img
                 src={heroImg}
                 alt="Cheshani Dananjana"
                 className="w-full h-full object-cover object-top filter grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
               />
-
-              {/* Seamless Radial & Edge Vignette Blending with Background */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/30 to-transparent opacity-90" />
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#121212_95%)] opacity-70" />
-
             </motion.div>
           </motion.div>
 
         </div>
       </div>
 
-      {/* Minimalist Metadata Footer */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -154,7 +137,6 @@ export default function Hero() {
           <ArrowDown size={14} className="animate-bounce" />
         </a>
 
-        {/* Pill Badge on Right Side */}
         <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#1E1E1E]/90 border border-white/10 shadow-md">
           <span className="w-2 h-2 rounded-full bg-[#E5B05C] animate-pulse" />
           <span className="text-[11px] font-mono tracking-wider text-gray-300 uppercase">

@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, GitFork, ArrowUpRight } from 'lucide-react';
 
-// Custom inline GitHub SVG Icon to prevent lucide-react brand export errors
+// IMPORT YOUR CUSTOM PAWLY IMAGE HERE
+import pawlyImg from '../assets/pawly.jpg';
+
 const GithubIcon = ({ size = 16, className = "" }) => (
   <svg
     width={size}
@@ -33,15 +35,15 @@ const githubProjects = [
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
   },
   {
-    id: 'ai-recruitment-platform',
-    name: 'AI-Powered Recruitment Platform',
-    repoName: 'chaniru2/AI-Powered-Recruitment-and-Talent-Management-Platform',
-    description: 'AI-Powered Recruitment and Talent Management Platform - Software Architecture for automated candidate evaluation.',
-    topics: ['TypeScript', 'AI System Architecture', 'Full Stack'],
-    html_url: 'https://github.com/chaniru2/AI-Powered-Recruitment-and-Talent-Management-Platform',
-    stargazers_count: 4,
-    forks_count: 2,
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+    id: 'pawly-mobile-app',
+    name: 'PAWLY Mobile App',
+    repoName: 'cheshani-dananjana/PAWLY-Mobile-App',
+    description: 'A feature-rich cross-platform mobile application developed using Flutter and Dart, implementing custom animal post creation screens, image picking, and smooth animations.',
+    topics: ['Flutter', 'Dart', 'Mobile UI', 'Animations'],
+    html_url: 'https://github.com/cheshani-dananjana/PAWLY-Mobile-App.git',
+    stargazers_count: 2,
+    forks_count: 0,
+    image: pawlyImg,
   },
   {
     id: 'university-erp-system',
@@ -80,14 +82,13 @@ const githubProjects = [
 
 export default function RecentWorks() {
   return (
-    <section id="recent-works" className="relative min-h-screen py-24 px-6 bg-[#121212] text-white select-none">
+    <section id="recent-works" className="relative py-24 px-6 bg-[#121212] text-white select-none">
       
       {/* Background Ambient Glow */}
       <div className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[40rem] h-[40rem] bg-[#E5B05C]/5 rounded-full blur-[160px] pointer-events-none z-0" />
 
       <div className="max-w-5xl mx-auto w-full z-10 relative">
         
-        {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +97,7 @@ export default function RecentWorks() {
           className="mb-16 border-b border-white/10 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4"
         >
           <div>
-            <span className="text-[#E5B05C] font-mono text-xs sm:text-sm tracking-widest uppercase">// 03. CONTRIBUTED PROJECTS</span>
+            <span className="text-[#E5B05C] font-mono text-xs sm:text-sm tracking-widest uppercase">03. CONTRIBUTED PROJECTS</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase mt-1 tracking-tight">
               RECENT WORKS
             </h2>
@@ -112,102 +113,99 @@ export default function RecentWorks() {
           </a>
         </motion.div>
 
-        {/* Stacked Cards Container (James Williams Style Pinning via CSS Sticky) */}
-        <div className="relative space-y-12 pb-24">
+        {/* 
+          JAMES WILLIAMS STACKING CARDS 
+          Flex column creates the scroll space. Outer div sticks. Inner div animates. 
+        */}
+        <div className="flex flex-col gap-12 sm:gap-24 pb-32">
           {githubProjects.map((project, index) => {
-            const stickyTop = 100 + index * 12;
-            const zIndex = 10 + index;
+            const stickyOffset = 110 + index * 20; // Stacks them 20px apart
 
             return (
-              <motion.div
+              <div
                 key={project.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.6 }}
+                className="sticky w-full"
                 style={{
-                  position: 'sticky',
-                  top: `${stickyTop}px`,
-                  zIndex: zIndex,
+                  top: `${stickyOffset}px`,
+                  zIndex: index + 1,
                 }}
-                className="w-full bg-[#1E1E1E] border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl backdrop-blur-xl transition-all duration-300 group hover:border-[#E5B05C]/50 mb-12"
               >
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-                  
-                  {/* Left Side: Information */}
-                  <div className="space-y-6 lg:max-w-xl">
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="w-full bg-[#1E1E1E] border border-white/10 rounded-3xl p-8 sm:p-12 shadow-[0_-15px_40px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-colors duration-300 group hover:border-[#E5B05C]/50"
+                >
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                     
-                    <div className="flex items-center gap-3">
-                      <span className="text-xs font-mono text-[#E5B05C] tracking-widest uppercase">
-                        PROJECT 0{index + 1}
-                      </span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
-                      <span className="text-xs font-mono text-gray-400 font-mono truncate max-w-[240px]">
-                        {project.repoName}
-                      </span>
-                    </div>
-
-                    <h3 className="text-2xl sm:text-3xl font-black text-white capitalize tracking-tight group-hover:text-[#E5B05C] transition-colors">
-                      {project.name}
-                    </h3>
-
-                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed font-light">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {project.topics.map((topic) => (
-                        <span
-                          key={topic}
-                          className="px-3 py-1 rounded-full bg-[#121212] border border-white/10 text-xs font-mono text-gray-300"
-                        >
-                          {topic}
+                    <div className="space-y-6 lg:max-w-xl">
+                      <div className="flex items-center gap-3">
+                        <span className="text-xs font-mono text-[#E5B05C] tracking-widest uppercase">
+                          PROJECT 0{index + 1}
                         </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center gap-6 pt-4 border-t border-white/10">
-                      <a
-                        href={project.html_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#E5B05C] text-[#121212] font-bold text-xs tracking-wider uppercase rounded-full hover:bg-white transition-all duration-300 shadow-md"
-                      >
-                        <GithubIcon size={16} />
-                        <span>Repository</span>
-                      </a>
-
-                      <div className="flex items-center gap-4 text-xs font-mono text-gray-400">
-                        <span className="flex items-center gap-1.5 hover:text-[#E5B05C] transition-colors">
-                          <Star size={14} className="text-[#E5B05C]" />
-                          {project.stargazers_count}
-                        </span>
-                        <span className="flex items-center gap-1.5 hover:text-[#E5B05C] transition-colors">
-                          <GitFork size={14} className="text-[#E5B05C]" />
-                          {project.forks_count}
+                        <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
+                        <span className="text-xs font-mono text-gray-400 font-mono truncate max-w-[240px]">
+                          {project.repoName}
                         </span>
                       </div>
+
+                      <h3 className="text-2xl sm:text-3xl font-black text-white capitalize tracking-tight group-hover:text-[#E5B05C] transition-colors">
+                        {project.name}
+                      </h3>
+
+                      <p className="text-gray-300 text-sm sm:text-base leading-relaxed font-light">
+                        {project.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {project.topics.map((topic) => (
+                          <span
+                            key={topic}
+                            className="px-3 py-1 rounded-full bg-[#121212] border border-white/10 text-xs font-mono text-gray-300"
+                          >
+                            {topic}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex items-center gap-6 pt-4 border-t border-white/10">
+                        <a
+                          href={project.html_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#E5B05C] text-[#121212] font-bold text-xs tracking-wider uppercase rounded-full hover:bg-white transition-all duration-300 shadow-md"
+                        >
+                          <GithubIcon size={16} />
+                          <span>Repository</span>
+                        </a>
+
+                        <div className="flex items-center gap-4 text-xs font-mono text-gray-400">
+                          <span className="flex items-center gap-1.5 hover:text-[#E5B05C] transition-colors">
+                            <Star size={14} className="text-[#E5B05C]" />
+                            {project.stargazers_count}
+                          </span>
+                          <span className="flex items-center gap-1.5 hover:text-[#E5B05C] transition-colors">
+                            <GitFork size={14} className="text-[#E5B05C]" />
+                            {project.forks_count}
+                          </span>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div className="w-full lg:w-80 aspect-video lg:aspect-[4/3] bg-[#121212] border border-white/10 rounded-2xl overflow-hidden relative group-hover:border-[#E5B05C]/50 transition-all shrink-0 shadow-lg">
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-full object-cover grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#121212]/80 via-transparent to-transparent opacity-60" />
                     </div>
 
                   </div>
-
-                  {/* Right Side: Visual Project Image Card */}
-                  <div className="w-full lg:w-80 aspect-video lg:aspect-[4/3] bg-[#121212] border border-white/10 rounded-2xl overflow-hidden relative group-hover:border-[#E5B05C]/50 transition-all shrink-0 shadow-lg">
-                    <img
-                      src={project.image}
-                      alt={project.name}
-                      className="w-full h-full object-cover grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#121212]/80 via-transparent to-transparent opacity-60" />
-                    <div className="absolute bottom-3 left-3 right-3 flex justify-between items-center text-xs font-mono text-gray-300">
-                      <span className="px-2.5 py-1 rounded-full bg-[#121212]/90 border border-white/10 backdrop-blur-sm text-[#E5B05C] text-[11px]">
-                
-                      </span>
-                    </div>
-                  </div>
-
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             );
           })}
         </div>

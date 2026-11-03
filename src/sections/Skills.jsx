@@ -38,7 +38,7 @@ export default function Skills() {
           className="mb-6 border-b border-white/10 pb-3 flex flex-row items-end justify-between"
         >
           <div>
-            <span className="text-[#E5B05C] font-mono text-xs tracking-widest uppercase">// 02. TECHNICAL & LEADERSHIP SKILLS</span>
+            <span className="text-[#E5B05C] font-mono text-xs tracking-widest uppercase">02. TECHNICAL & LEADERSHIP SKILLS</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase mt-1 tracking-tight">
               PROFICIENCY & TOOLSTACK
             </h2>

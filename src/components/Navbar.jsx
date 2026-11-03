@@ -42,7 +42,6 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#121212]/90 backdrop-blur-md border-b border-white/10 px-6 py-3 flex justify-between items-center select-none">
       
-      {/* Mini Photo Home Button */}
       <a 
         href="#hero" 
         aria-label="Home"
@@ -61,7 +60,6 @@ export default function Navbar() {
         </div>
       </a>
 
-      {/* Desktop Navigation Links */}
       <div className="hidden md:flex space-x-8 text-sm uppercase tracking-wider font-medium text-gray-300">
         {navLinks.map((link) => {
           const isActive = activeSection === link.id;
@@ -75,7 +73,6 @@ export default function Navbar() {
             >
               {link.name}
               
-              {/* Active Indicator: Sliding Gold Dot */}
               {isActive && (
                 <motion.div
                   layoutId="activeIndicator"
@@ -88,7 +85,6 @@ export default function Navbar() {
         })}
       </div>
 
-      {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="md:hidden text-gray-300 hover:text-white focus:outline-none"
@@ -96,7 +92,6 @@ export default function Navbar() {
         {isOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
 
-      {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-[#121212] border-b border-white/10 flex flex-col items-center py-6 space-y-4 md:hidden">
           {navLinks.map((link) => {
